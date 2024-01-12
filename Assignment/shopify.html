@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="shopify.css">
+  <title>Assessment-Task-2</title>
+</head>
+<body>
+  <div class="tabs">
+    <h1>SELECT YOUR CHOICE</h1>
+    <div>
+        <button id="menTab" onclick="showProducts('men')">Men</button>
+        <button id="womenTab" onclick="showProducts('women')">Women</button>
+        <button id="kidsTab" onclick="showProducts('kids')">Kids</button>
+    </div>
+</div>
+
+  <div id="menProducts" class="product-container"></div>
+  <div id="womenProducts" class="product-container" style="display: none;"></div>
+  <div id="kidsProducts" class="product-container" style="display: none;"></div>
+  
+
+  <script src="shopify.js"></script>
+</body>
+</html>

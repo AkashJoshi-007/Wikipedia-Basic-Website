@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab" onclick="showProducts('men')">Men</div>
+        <div class="tab" onclick="showProducts('women')">Women</div>
+        <div class="tab" onclick="showProducts('kids')">Kids</div>
+    </div>
+
+    <div class="product-cards" id="menProducts">
+        <!-- Men's product cards will be displayed here -->
+    </div>
+
+    <div class="product-cards" id="womenProducts" style="display: none;">
+        <!-- Women's product cards will be displayed here -->
+    </div>
+
+    <div class="product-cards" id="kidsProducts" style="display: none;">
+        <!-- Kids' product cards will be displayed here -->
+    </div>
+</div>
+
+<script>
+    // Function to fetch product data from the provided API
+    async function fetchProductData() {
+        try {
+            const response = await fetch('https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json');
+            const data = await response.json();
+            return data.products; // Assuming 'products' is the key in the API response containing the product array
+        } catch (error) {
+            console.error('Error fetching product data:', error);
+            return [];
+        }
+    }
+
+    // Function to show products based on the selected category
+    function showProducts(category) {
+        // Fetch product data and render product cards
+        fetchProductData().then(productsData => {
+            const categoryProducts = productsData.filter(product => product.category.toLowerCase() === category);
+
+            const productCardsContainer = document.getElementById(`${category}Products`);
+            productCardsContainer.innerHTML = '';
+
+            categoryProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}">
+                    <div>${product.badge}</div>
+                    <h3>${product.title}</h3>
+                    <p>Vendor: ${product.vendor}</p>
+                    <p>Price: $${product.price}</p>
+                    <p>Compare at Price: $${product.compareAtPrice}</p>
+                    <p>Discount: ${calculateDiscountPercentage(product.price, product.compareAtPrice)}% off</p>
+                    <button>Add to Cart</button>
+                `;
+
+                productCardsContainer.appendChild(productCard);
+            });
+
+            // Show the product card container for the selected category
+            document.getElementById('menProducts').style.display = category === 'men' ? 'flex' : 'none';
+            document.getElementById('womenProducts').style.display = category === 'women' ? 'flex' : 'none';
+            document.getElementById('kidsProducts').style.display = category === 'kids' ? 'flex' : 'none';
+        });
+    }
+
+    // Function to calculate the discount percentage
+    function calculateDiscountPercentage(price, compareAtPrice) {
+        if (compareAtPrice && compareAtPrice > price) {
+            const discountPercentage = ((compareAtPrice - price) / compareAtPrice) * 100;
+            return discountPercentage.toFixed(2);
+        }
+        return 0;
+    }
+
+    // Show initial products (default category: Men)
+    showProducts('men');
+</script>
+
+</body>
+</html>
