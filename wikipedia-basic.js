@@ -83,3 +83,5 @@ function searchWikipedia(event) {
     }
 }
 searchInputEl.addEventListener("keydown", searchWikipedia);
+
+// Day 22....
