@@ -1,0 +1,37 @@
+
+p {
+  font-family: Roboto;
+  margin-bottom: 0px;
+}
+
+.text-1 {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 26px;
+  width: 500px;
+  margin-bottom: 5px;
+}
+
+.text-2{
+  margin-top: 0px;
+  color:grey;
+
+}
+
+.apple-text{
+  color: antiquewhite;
+  background-color: brown;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+
+}
+
+.inline-element{
+  transition: hover 1s;
+}
+
+.inline-element:hover{
+  text-decoration: underline;
+}
