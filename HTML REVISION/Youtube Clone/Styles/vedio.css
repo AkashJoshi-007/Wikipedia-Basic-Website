@@ -52,4 +52,22 @@
 .thumnail-el{
   
   margin-bottom: 12px;
+  position: relative;
+}
+
+.vedio-time{
+  font-family: Roboto,Arial;
+
+  position: absolute;
+  background-color: black;
+  font-size: 12px;
+  font-weight: 500;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color:white;
+  bottom: 8px;
+  right: 5px;
+  border-radius: 2px;
 }

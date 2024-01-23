@@ -4,5 +4,35 @@
   bottom: 0;
   top: 55px;
   background-color: white;
+  width: 72px;
+  z-index: 200;
 
+}
+
+.side-bar-boxes{
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  
+
+}
+
+.side-bar-boxes:hover{
+  background-color: rgb(235, 235, 235);
+}
+
+.sidebar-img-el{
+  height: 26px;
+  margin-bottom: 5px;
+}
+
+.side-bar-text-el{
+  font-family: Roboto,Arial;
+  font-size: 9px;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
 }
