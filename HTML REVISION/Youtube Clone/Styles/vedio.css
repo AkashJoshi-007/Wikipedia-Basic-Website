@@ -38,6 +38,24 @@
   row-gap: 40px;
 }
 
+@media (max-width:750px){
+  .final-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width:751px) and (max-width:999px) {
+  .final-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width:1000px){
+  .final-grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+  }
+}
+
 .creater-pic{
   vertical-align: top;
 }
